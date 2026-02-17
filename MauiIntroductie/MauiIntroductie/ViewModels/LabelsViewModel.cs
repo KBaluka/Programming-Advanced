@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MauiIntroductie.ViewModels
 {
-    public partial class LabelsViewModel: ObservableObject
+    public partial class LabelsViewModel: BaseViewModel
     {
         [ObservableProperty]
         public string text, textColor;

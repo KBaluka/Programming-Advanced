@@ -7,7 +7,7 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace MauiIntroductie.ViewModels
 {
-    public partial class StackLayoutViewModel : ObservableObject
+    public partial class StackLayoutViewModel : BaseViewModel
     {
         [ObservableProperty]
         public string naam, email, telefoon, uitvoer, geslacht;

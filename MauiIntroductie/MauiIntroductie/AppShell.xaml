@@ -28,5 +28,13 @@
         Title="Voorbeeld"
         ContentTemplate="{DataTemplate views:VoorbeeldPage}"
         Route="VoorbeeldPage" />
+    <ShellContent
+        Title="Namen"
+        ContentTemplate="{DataTemplate views:NamenPage}"
+        Route="NamenPage" />
+    <ShellContent
+        Title="Werknemers"
+        ContentTemplate="{DataTemplate views:WerknemerPage}"
+        Route="WerknemerPage" />
 </Shell>
     

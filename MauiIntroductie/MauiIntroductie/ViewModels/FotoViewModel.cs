@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MauiIntroductie.ViewModels
 {
-    public partial class FotoViewModel: ObservableObject
+    public partial class FotoViewModel: BaseViewModel
     {
         [ObservableProperty]
         int hoogte, breedte;

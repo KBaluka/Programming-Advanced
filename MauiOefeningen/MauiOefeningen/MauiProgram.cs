@@ -21,8 +21,6 @@ namespace MauiOefeningen
 #endif
 
             return builder.Build();
-
-            builder.Services.AddSingleton<MainPage>();
         }
     }
 }

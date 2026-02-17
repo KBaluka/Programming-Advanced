@@ -6,7 +6,7 @@
     <StackLayout>
         <HorizontalStackLayout>
             <Label Text="Geef een naam in: " Margin="10"/>
-            <Entry Placeholder="Naam" Margin="5" />
+            <Entry Placeholder="Naam" Margin="5" MinimumWidthRequest="150"/>
         </HorizontalStackLayout>
 
         <HorizontalStackLayout>

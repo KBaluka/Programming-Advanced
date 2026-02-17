@@ -9,15 +9,24 @@
     Title="MauiOefeningen">
 
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate views:MainPage}"
-        Route="MainPage"
-        />
-
+    Title="Home"
+    ContentTemplate="{DataTemplate views:MainPage}"
+    Route="MainPage"
+    />
     <ShellContent
     Title="Naam tonen"
     ContentTemplate="{DataTemplate views:NaamTonenPage}"
     Route="NaamTonenPage"
+    />
+    <ShellContent
+    Title="Vak"
+    ContentTemplate="{DataTemplate views:VakPage}"
+    Route="VakPage"
+    />
+    <ShellContent
+    Title="Afbeeldingen"
+    ContentTemplate="{DataTemplate views:AfbeeldingenPage}"
+    Route="AfbeeldingenPage"
     />
 
 </Shell>

@@ -32,6 +32,12 @@ namespace MauiIntroductie
             builder.Services.AddSingleton<FotoPage>();
             builder.Services.AddSingleton<FotoViewModel>();
 
+            builder.Services.AddSingleton<NamenPage>();
+            builder.Services.AddSingleton<NamenViewModel>();
+
+            builder.Services.AddSingleton<WerknemerPage>();
+            builder.Services.AddSingleton<WerknemerViewModel>();
+
             return builder.Build();
         }
     }

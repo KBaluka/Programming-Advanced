@@ -9,7 +9,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace MauiIntroductie.ViewModels
 {
-    public partial class PersoonViewModel: ObservableObject
+    public partial class PersoonViewModel: BaseViewModel
     {
         [ObservableProperty]
         public string naam;
