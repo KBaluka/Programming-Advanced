@@ -1,60 +1,45 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:MauiOefeningen.ViewModels"
+             x:DataType="viewmodel:VakViewModel"
              x:Class="MauiOefeningen.Views.VakPage"
              Title="Vak">
+
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="14">
-            <Label Text="Programming Advanced"
-                   FontSize="22" />
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Label Text="Vak" FontSize="28" />
+            <Label Text="Programming Advanced" FontSize="18" />
             <Image Source="pa.png"
                    HeightRequest="100"
                    HorizontalOptions="Start" />
-            <HorizontalStackLayout Spacing="12">
-                <Entry Placeholder="Voornaam"
-                       WidthRequest="200" />
-                <Entry Placeholder="Naam"
-                       WidthRequest="487" />
+
+            <HorizontalStackLayout Spacing="10">
+                <Entry Placeholder="Voornaam" WidthRequest="150" Text="{Binding Voornaam}" />
+                <Entry Placeholder="Naam" WidthRequest="200" Text="{Binding Naam}" />
             </HorizontalStackLayout>
 
-            <HorizontalStackLayout>
-                <Entry Placeholder="Locatie campus"
-                WidthRequest="700" />
+            <Entry Placeholder="Locatie campus" Text="{Binding Campus}" />
+
+            <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                <Label Text="Vast lokaal?" VerticalTextAlignment="Center" />
+                <CheckBox IsChecked="{Binding VastLokaal}" />
+                <Entry Placeholder="Lokaalnr" WidthRequest="100" Text="{Binding Lokaal}" />
             </HorizontalStackLayout>
 
-            <HorizontalStackLayout Spacing="12" VerticalOptions="Center">
-                <Label Text="Vast lokaal?"
-                       VerticalTextAlignment="Center" />
-                <CheckBox />
-                <Entry Placeholder="Lokaalnr"
-                       WidthRequest="150"
-                       Keyboard="Numeric" />
+            <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                <Label Text="Datum eerste les:" VerticalTextAlignment="Center" />
+                <DatePicker Date="{Binding DatumEersteLes}" />
             </HorizontalStackLayout>
 
-            <HorizontalStackLayout Spacing="12" VerticalOptions="Center">
-                <Label Text="Datum eerste les:"
-                       VerticalTextAlignment="Center" />
-                <DatePicker Date="2000-01-01"
-                            Format="d"
-                            WidthRequest="180" />
+            <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                <Label Text="Hoeveel denk je te scoren voor dit vak?" VerticalTextAlignment="Center" />
+                <Label Text="{Binding Score, StringFormat='{0:0}/20'}" VerticalTextAlignment="Center" />
+                <Stepper Minimum="0" Maximum="20" Increment="1" Value="{Binding Score}" />
             </HorizontalStackLayout>
 
-            <HorizontalStackLayout Spacing="12" VerticalOptions="Center">
-                <Label Text="Hoeveel denk je te scoren voor dit vak?"
-                       VerticalTextAlignment="Center" />
-                <Label Text="10/20"
-                       VerticalTextAlignment="Center" />
-                <Stepper Minimum="0"
-                         Maximum="20"
-                         Increment="1" />
-            </HorizontalStackLayout>
-
-            <Button Text="Opslaan"
-                    CornerRadius="10"
-                    HorizontalOptions="Start" />
-            <Label Text="Uitvoer"
-                   FontSize="18"
-                   FontAttributes="Bold" />
+            <Button Text="Opslaan" Command="{Binding OpslaanCommand}" />
+            <Label Text="{Binding Uitvoer}"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

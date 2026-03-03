@@ -38,6 +38,12 @@ namespace MauiIntroductie
             builder.Services.AddSingleton<WerknemerPage>();
             builder.Services.AddSingleton<WerknemerViewModel>();
 
+            builder.Services.AddSingleton<WerknemerDetailPage>();
+            builder.Services.AddSingleton<WerknemerDetailViewModel>();
+
+            builder.Services.AddSingleton<IWerknemerRepository, WerknemerRepository>();
+            builder.Services.AddSingleton<IFunctieRepository, FunctieRepository>();
+
             return builder.Build();
         }
     }

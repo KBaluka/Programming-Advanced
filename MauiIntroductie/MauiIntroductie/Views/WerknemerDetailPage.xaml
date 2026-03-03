@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiIntroductie.Views.WerknemerDetailPage"
+             xmlns:viewmodel="clr-namespace:MauiIntroductie.ViewModels"
+             xmlns:model="clr-namespace:MauiIntroductie.Models"
+             x:DataType="viewmodel:WerknemerDetailViewModel"
+             Title="WerknemerDetailPage">
+    <VerticalStackLayout>
+            <Label Text="{Binding Werknemer.Id}" />
+            <Label Text="{Binding Werknemer.Achternaam}" />
+            <Label Text="{Binding Werknemer.Voornaam}" />
+    </VerticalStackLayout>
+</ContentPage>

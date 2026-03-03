@@ -1,3 +1,5 @@
+using MauiIntroductie.ViewModels;
+
 namespace MauiIntroductie.Views;
 
 public partial class WerknemerPage : ContentPage

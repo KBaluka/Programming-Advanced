@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:MauiOefeningen.ViewModels"
+             x:Class="MauiOefeningen.Views.VragenLijstPage"
+             x:DataType="viewmodel:VragenLijstViewModel"
+             Title="Vragenlijst">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="14">
+            <Label Text="Vragenlijst"
+                   FontSize="36"
+                   FontAttributes="Bold" />
+            <Entry Placeholder="Naam"
+                   Text="{Binding Naam}" />
+            <Grid IsVisible="{Binding ControlsZichtbaar}"
+                  ColumnDefinitions="*,*"
+                  RowDefinitions="Auto,Auto,Auto,Auto,Auto"
+                  ColumnSpacing="12"
+                  RowSpacing="12">
+                <Label Grid.Row="0" Grid.ColumnSpan="2"
+                       Text="{Binding Naam, StringFormat='Welkom {0}'}"
+                       FontSize="22" />
+                <Label Grid.Row="1" Grid.Column="0"
+                       Text="Eet je gezond?"
+                       VerticalTextAlignment="Center" />
+                <Picker Grid.Row="1" Grid.Column="1"
+                        Title=""
+                        SelectedItem="{Binding EetGezond}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Ja</x:String>
+                            <x:String>Nee</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Label Grid.Row="2" Grid.Column="0"
+                       Text="Drink je voldoende?"
+                       VerticalTextAlignment="Center" />
+                <Picker Grid.Row="2" Grid.Column="1"
+                        SelectedItem="{Binding DrinkVoldoende}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Ja</x:String>
+                            <x:String>Nee</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Label Grid.Row="3" Grid.Column="0"
+                       Text="{Binding SportDagen, StringFormat='Hoeveel dagen per week sport je? {0:0}'}"
+                       VerticalTextAlignment="Center" />
+                <Slider Grid.Row="3" Grid.Column="1"
+                        Minimum="0"
+                        Maximum="7"
+                        Value="{Binding SportDagen}" />
+                <Button Grid.Row="4" Grid.Column="0"
+                        Text="Controleren"
+                        Command="{Binding ControlerenCommand}"
+                        HeightRequest="56" />
+                <Button Grid.Row="4" Grid.Column="1"
+                        Text="Herstarten"
+                        Command="{Binding HerstartenCommand}"
+                        HeightRequest="56" />
+            </Grid>
+            <Label Text="{Binding Uitvoer}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

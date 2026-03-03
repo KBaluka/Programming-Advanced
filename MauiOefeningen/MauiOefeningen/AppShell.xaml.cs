@@ -1,10 +1,11 @@
-﻿namespace MauiOefeningen
+﻿using MauiOefeningen.Views;
+
+namespace MauiOefeningen;
+public partial class AppShell : Shell
 {
-    public partial class AppShell : Shell
+    public AppShell()
     {
-        public AppShell()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+        Routing.RegisterRoute(nameof(PersonenTonenPage), typeof(PersonenTonenPage));
     }
 }

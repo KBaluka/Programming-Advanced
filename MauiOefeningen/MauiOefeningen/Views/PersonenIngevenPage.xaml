@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:MauiOefeningen.ViewModels"
+             xmlns:models="clr-namespace:MauiOefeningen.Models"
+             x:Class="MauiOefeningen.Views.PersonenIngevenPage"
+             x:DataType="viewmodel:PersonenIngevenViewModel"
+             Title="Personen ingeven">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12" WidthRequest="320">
+            <Label Text="Personen ingeven" FontSize="26" FontAttributes="Bold" />
+            <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto" ColumnSpacing="10" RowSpacing="10">
+                <Label Text="Voornaam:" VerticalTextAlignment="Center" />
+                <Entry Grid.Column="1" Text="{Binding Voornaam}" />
+                <Label Grid.Row="1" Text="Geboortedatum:" VerticalTextAlignment="Center" />
+                <DatePicker Grid.Row="1" Grid.Column="1" Date="{Binding Geboortedatum}" />
+            </Grid>
+            <HorizontalStackLayout Spacing="10">
+                <Button Text="Ingeven" Command="{Binding IngevenCommand}" />
+                <Button Text="Tonen" Command="{Binding TonenCommand}" />
+            </HorizontalStackLayout>
+            <CollectionView ItemsSource="{Binding Personen}" SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Persoon">
+                        <VerticalStackLayout Spacing="0" Margin="0,6,0,0">
+                            <Label Text="{Binding Voornaam, StringFormat='Voornaam: {0}'}" />
+                            <Label Text="{Binding Geboortedatum, StringFormat='Geboortedatum: {0:dd/MM/yyyy}'}" />
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

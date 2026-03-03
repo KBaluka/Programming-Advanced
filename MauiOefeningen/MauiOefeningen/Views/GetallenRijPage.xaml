@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:MauiOefeningen.ViewModels"
+             xmlns:models="clr-namespace:MauiOefeningen.Models"
+             x:Class="MauiOefeningen.Views.GetallenRijPage"
+             x:DataType="viewmodel:GetallenRijViewModel"
+             Title="GetallenRij">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12" WidthRequest="320" HorizontalOptions="Center">
+            <Label Text="GetallenRij" FontSize="32" FontAttributes="Bold" />
+            <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto" ColumnSpacing="10">
+                <Label Text="Geef een getal in:" VerticalTextAlignment="Center" />
+                <Entry Grid.Column="1"
+                       WidthRequest="60"
+                       Keyboard="Numeric"
+                       Text="{Binding Invoer}" />
+            </Grid>
+            <Button Text="Getal Toevoegen"
+                    Command="{Binding GetalToevoegenCommand}"
+                    HeightRequest="55" />
+            <Label Text="{Binding Kleinste, StringFormat='Kleinste getal: {0}'}" />
+            <Label Text="{Binding Grootste, StringFormat='Grootste getal: {0}'}" />
+            <Label Text="Rij:" FontAttributes="Bold" />
+            <CollectionView ItemsSource="{Binding Rij}" SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:GetalItem">
+                        <Label Text="{Binding Waarde}" FontSize="18" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button Text="Verwijder laatste"
+                    Command="{Binding VerwijderLaatsteCommand}"
+                    HeightRequest="55" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

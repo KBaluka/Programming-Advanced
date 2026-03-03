@@ -1,9 +1,11 @@
-namespace MauiOefeningen.Views;
+using MauiOefeningen.ViewModels;
 
+namespace MauiOefeningen.Views;
 public partial class NaamTonenPage : ContentPage
 {
-	public NaamTonenPage()
-	{
-		InitializeComponent();
-	}
+    public NaamTonenPage(NaamTonenViewModel vm)
+    {
+        InitializeComponent();
+        BindingContext = vm;
+    }
 }

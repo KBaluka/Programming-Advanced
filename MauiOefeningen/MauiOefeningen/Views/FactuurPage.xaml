@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:MauiOefeningen.ViewModels"
+             xmlns:models="clr-namespace:MauiOefeningen.Models"
+             x:Class="MauiOefeningen.Views.FactuurPage"
+             x:DataType="viewmodel:FactuurViewModel"
+             Title="Factuur">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="14">
+            <Label Text="Factuur" FontSize="32" FontAttributes="Bold" />
+            <Grid ColumnDefinitions="2*,*,*,*"
+                  RowDefinitions="Auto"
+                  ColumnSpacing="12">
+                <Entry Placeholder="Productnaam"
+                       Text="{Binding ProductNaam}" />
+                <Entry Grid.Column="1"
+                       Placeholder="Prijs"
+                       Keyboard="Numeric"
+                       Text="{Binding Prijs}" />
+                <Entry Grid.Column="2"
+                       Placeholder="Aantal"
+                       Keyboard="Numeric"
+                       Text="{Binding Aantal}" />
+                <Button Grid.Column="3"
+                        Text="Product toevoegen"
+                        Command="{Binding ProductToevoegenCommand}" />
+            </Grid>
+            <Label Text="Factuur" FontAttributes="Bold" FontSize="20" />
+            <Grid ColumnDefinitions="2*,*,*,*"
+                  RowDefinitions="Auto"
+                  ColumnSpacing="12">
+                <Label Text="Productnaam" FontAttributes="Bold" />
+                <Label Grid.Column="1" Text="Prijs" FontAttributes="Bold" />
+                <Label Grid.Column="2" Text="Aantal" FontAttributes="Bold" />
+                <Label Grid.Column="3" Text="Totaal" FontAttributes="Bold" HorizontalTextAlignment="End" />
+            </Grid>
+            <CollectionView ItemsSource="{Binding Producten}" SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Product">
+                        <Grid ColumnDefinitions="2*,*,*,*"
+                              Padding="0,2"
+                              ColumnSpacing="12">
+                            <Label Text="{Binding Naam}" />
+                            <Label Grid.Column="1" Text="{Binding Prijs}" />
+                            <Label Grid.Column="2" Text="{Binding Aantal}" />
+                            <Label Grid.Column="3" Text="{Binding Totaal}" HorizontalTextAlignment="End" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Grid ColumnDefinitions="*,Auto"
+                  RowDefinitions="Auto,Auto,Auto"
+                  RowSpacing="6"
+                  Margin="0,10,0,0">
+                <Label Text="Subtotaal:" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="End" />
+                <Label Text="{Binding Subtotaal}" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="End" />
+                <Label Text="Btw:" Grid.Row="1" Grid.Column="0" HorizontalTextAlignment="End" />
+                <Label Text="{Binding Btw}" Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="End" />
+                <Label Text="Eindtotaal:" Grid.Row="2" Grid.Column="0" FontAttributes="Bold" FontSize="18" HorizontalTextAlignment="End" />
+                <Label Text="{Binding Eindtotaal}" Grid.Row="2" Grid.Column="1" FontAttributes="Bold" FontSize="18" HorizontalTextAlignment="End" />
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

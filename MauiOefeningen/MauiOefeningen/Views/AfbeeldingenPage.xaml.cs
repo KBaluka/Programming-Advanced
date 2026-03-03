@@ -1,9 +1,12 @@
+using MauiOefeningen.ViewModels;
+
 namespace MauiOefeningen.Views;
 
 public partial class AfbeeldingenPage : ContentPage
 {
-	public AfbeeldingenPage()
+	public AfbeeldingenPage(AfbeeldingenViewModel viewModel)
 	{
-		InitializeComponent();
+		this.InitializeComponent();
+		this.BindingContext = viewModel;
 	}
 }

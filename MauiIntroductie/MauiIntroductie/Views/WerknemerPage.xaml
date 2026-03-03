@@ -6,18 +6,14 @@
              x:DataType="viewmodel:WerknemerViewModel"
              Title="{Binding Title}">
     <VerticalStackLayout Margin="10">
+        <Button Text="Refresh" Command="{Binding RefreshListsCommand}"/>
+        
         <Entry Text="{Binding Werknemer.Id}" Placeholder="Geef een Id in" />
         <Entry Text="{Binding Werknemer.Achternaam}" Placeholder="Geef een achternaam in" />
         <Entry Text="{Binding Werknemer.Voornaam}" Placeholder="Geef een voornaam in" />
         <HorizontalStackLayout>
             <Label Text="Wat is de functie van de werknemer?" VerticalOptions="Center"/>
-            <Picker SelectedItem="{Binding Werknemer.Functie}" >
-                <Picker.Items>
-                    <x:String>Manager</x:String>
-                    <x:String>Developer</x:String>
-                    <x:String>Designer</x:String>
-                </Picker.Items>
-            </Picker>
+            <Picker ItemsSource="{Binding Functies}" SelectedItem="{Binding Werknemer.Functie}" />
         </HorizontalStackLayout>
         <HorizontalStackLayout>
             <Label Text="Wat is de geboortedatum van de werknemer?" VerticalOptions="Center"/>
@@ -37,6 +33,10 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Werknemer">
                     <Grid ColumnDefinitions="*,*,*,*,*">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="2"
+                                Command="{Binding GoToDetailsCommand, Source={RelativeSource AncestorType={x:Type viewmodel:WerknemerViewModel}}}"/>
+                        </Grid.GestureRecognizers>
                         <Label Text="{Binding Id}" Grid.Column="0" />
                         <Label Text="{Binding VolledigeNaam}" Grid.Column="1"/>
                         <Label Text="{Binding Functie}" Grid.Column="2"/>

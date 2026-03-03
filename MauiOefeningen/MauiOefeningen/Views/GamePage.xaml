@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:MauiOefeningen.ViewModels"
+             xmlns:model="clr-namespace:MauiOefeningen.Models"
+             x:Class="MauiOefeningen.Views.GamePage"
+             x:DataType="viewmodel:GameViewModel"
+             Title="GamePage">
+    <Grid RowDefinitions="*,Auto"
+          ColumnDefinitions="*,*"
+          Margin="10">
+        <CollectionView Grid.Row="0"
+                Grid.Column="0"
+                Grid.RowSpan="2"
+                ItemsSource="{Binding Games}"
+                SelectionMode="Single"
+                SelectedItem="{Binding SelectedGame, Mode=TwoWay}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Game">
+                    <Frame Margin="0,0,0,10">
+                        <VerticalStackLayout>
+                            <Label>
+                                <Label.Text>
+                                    <MultiBinding StringFormat="Naam: {0} ({1})">
+                                        <Binding Path="Naam" />
+                                        <Binding Path="Moeilijkheidsgraad" />
+                                    </MultiBinding>
+                                </Label.Text>
+                            </Label>
+                            <Label Text="{Binding Uitgever, StringFormat='Uitgever {0}'}" />
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <VerticalStackLayout Grid.Row="0"
+                             Grid.Column="1"
+                             Margin="10"
+                             Spacing="10">
+            <HorizontalStackLayout>
+                <Label Text="Id" WidthRequest="200" VerticalOptions="Center" />
+                <Entry Text="{Binding Id}" Keyboard="Numeric" WidthRequest="80" />
+            </HorizontalStackLayout>
+            
+            <HorizontalStackLayout>
+                <Label Text="Naam" WidthRequest="200" VerticalOptions="Center" />
+                <Entry Text="{Binding Naam}" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Label Text="Moeilijkheidsgraad" WidthRequest="200" VerticalOptions="Center" />
+                <Slider Value="{Binding Moeilijkheidsgraad}"
+                        Minimum="1"
+                        Maximum="5"
+                        WidthRequest="160" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Label Text="Uitgever" WidthRequest="200" VerticalOptions="Center" />
+                <Entry Text="{Binding Uitgever}" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+
+        <HorizontalStackLayout Grid.Row="1"
+                               Grid.Column="1"
+                               HorizontalOptions="Start"
+                               Spacing="10">
+            <Button Text="Toevoegen"
+                    Command="{Binding ToevoegenCommand}" />
+            <Button Text="Nieuw game"
+                    Command="{Binding NieuwGameCommand}" />
+        </HorizontalStackLayout>
+    </Grid>
+</ContentPage>

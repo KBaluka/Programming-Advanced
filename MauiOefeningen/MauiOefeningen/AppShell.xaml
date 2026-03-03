@@ -9,24 +9,38 @@
     Title="MauiOefeningen">
 
     <ShellContent
-    Title="Home"
-    ContentTemplate="{DataTemplate views:MainPage}"
-    Route="MainPage"
-    />
+        Title="Home"
+        ContentTemplate="{DataTemplate views:MainPage}"
+        Route="MainPage" />
     <ShellContent
-    Title="Naam tonen"
-    ContentTemplate="{DataTemplate views:NaamTonenPage}"
-    Route="NaamTonenPage"
-    />
+        Title="Naam tonen"
+        ContentTemplate="{DataTemplate views:NaamTonenPage}"
+        Route="NaamTonenPage" />
     <ShellContent
-    Title="Vak"
-    ContentTemplate="{DataTemplate views:VakPage}"
-    Route="VakPage"
-    />
+        Title="Vak"
+        ContentTemplate="{DataTemplate views:VakPage}"
+        Route="VakPage" />
     <ShellContent
-    Title="Afbeeldingen"
-    ContentTemplate="{DataTemplate views:AfbeeldingenPage}"
-    Route="AfbeeldingenPage"
-    />
-
+        Title="Afbeeldingen"
+        ContentTemplate="{DataTemplate views:AfbeeldingenPage}"
+        Route="AfbeeldingenPage" />
+    <ShellContent
+        Title="Vragenlijst"
+        ContentTemplate="{DataTemplate views:VragenLijstPage}"
+        Route="VragenLijstPage" />
+    <ShellContent Title="Alle negen"
+        ContentTemplate="{DataTemplate views:AlleNegenPage}"
+        Route="AlleNegenPage" />
+    <ShellContent Title="GetallenRij"
+        ContentTemplate="{DataTemplate views:GetallenRijPage}"
+        Route="GetallenRijPage" />
+    <ShellContent Title="Factuur"
+        ContentTemplate="{DataTemplate views:FactuurPage}"
+        Route="FactuurPage" />
+    <ShellContent Title="Games"
+        ContentTemplate="{DataTemplate views:GamePage}"
+        Route="GamePage" />
+    <ShellContent Title="Personen"
+        ContentTemplate="{DataTemplate views:PersonenIngevenPage}"
+        Route="PersonenIngevenPage" />
 </Shell>

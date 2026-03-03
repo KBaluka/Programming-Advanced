@@ -1,9 +1,11 @@
-namespace MauiOefeningen.Views;
+using MauiOefeningen.ViewModels;
 
+namespace MauiOefeningen.Views;
 public partial class VakPage : ContentPage
 {
-	public VakPage()
+	public VakPage(VakViewModel viewModel)
 	{
-		InitializeComponent();
+		this.InitializeComponent();
+		this.BindingContext = viewModel;
 	}
 }
